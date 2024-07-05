@@ -20,11 +20,11 @@ class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         query_components = parse_qs(urlparse(self.path).query)
         print(query_components)
-        page_coctent = self.__get_html_content()
+        page_content = self.__get_html_content()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
-        self.wfile.write(bytes(page_coctent, "utf-8"))
+        self.wfile.write(bytes(page_content, "utf-8"))
         
 
 
